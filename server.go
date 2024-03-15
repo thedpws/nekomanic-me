@@ -3,13 +3,25 @@ package main
 import (
 	"net/http"
 
-	"github.com/labstack/echo/v4"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
+	r := gin.Default()
+	
+	// Serve static files
+	r.Static("/static", "./static")
+
+	// Serve the HTML page
+	r.LoadHTMLGlob("templates/*.html")
+
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", nil)
 	})
-	e.Logger.Fatal(e.Start(":1323"))
+
+	r.GET("/api/posts", func (c *gin.Context) {
+		posts := []string{"Post 1", "Post 2", "Post 3"}
+		c.HTML(http.StatusOK, "posts.html", gin.H{"posts": posts})
+	})
+	r.Run(":8080")
 }
