@@ -1,0 +1,38 @@
+go.sum
+# Compiled Go binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go build output
+/bin/
+/vendor/
+
+# Dependency directories
+/vendor/
+/go.sum
+/go.mod
+
+# Binary files
+*.db
+
+# Compiled HTML templates
+*.tmpl.go
+
+# Environment variables file
+.env
+
+# Local development files
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Editor backups
+*~
+
+# macOS system files
+.DS_Store
+
