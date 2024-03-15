@@ -1,4 +1,3 @@
-go.sum
 # Compiled Go binaries
 *.exe
 *.dll
@@ -11,7 +10,6 @@ go.sum
 
 # Dependency directories
 /vendor/
-/go.sum
 /go.mod
 
 # Binary files
